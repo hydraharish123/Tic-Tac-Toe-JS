@@ -1,0 +1,175 @@
+*{
+    margin : 0 ; 
+    padding:  0;
+    box-sizing: border-box;
+    font-family: "Finger Paint", cursive;
+    background-color: #37505C;
+}
+
+:root{
+    --orange : #F2C14E ; 
+    --winnerBlock : #06354a ;
+}
+
+body{
+    color : var(--orange);
+}
+
+h1{
+    font-size: 70px;
+}
+.container{
+    background-color: #37505C;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.board{
+    display: flex;
+    width: 450px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    
+}
+
+.box{
+    font-size: 70px;
+    height: 150px;
+    width: 150px;
+    border-right: 1px solid var(--orange);
+    border-bottom: 1px solid var(--orange) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box:nth-child(3n){/*for every third child set the border-right to none*/
+    border-right: none ;
+}
+
+.box:nth-child(6) ~.box{
+    /*after the 6th child set the border bottom of all child after child 6 to none*/
+    border-bottom: none;
+}
+
+.restartbtn{
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    padding:10px 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--orange);
+    transition: 0.2s all ease;
+    cursor: pointer;
+}
+
+.restartbtn:hover{
+    transform: translateY(-2px);
+}
+
+@media (max-width : 1024px){
+    h1 {
+        font-size: 55px;
+    }
+
+    .restartbtn{
+        font-size: 18px;
+    }
+}
+
+@media (max-width:768px) {
+    h1  {
+        font-size: 48px;
+    }
+    .restartbtn{
+        font-size: 17px;
+    }
+    .board{
+        width: 420px;
+    }
+    .box{
+        height: 140px;
+        width: 140px;
+    }
+}
+
+@media (max-width:600px) {
+    h1 {
+        font-size: 44px;
+    }
+    .restartbtn{
+        font-size: 16px;
+        padding:8px 13px;
+    }
+
+    .board{
+        width: 390px;
+    }
+    .box{
+        height: 130px;
+        width: 130px;
+    }
+    
+}
+
+@media (max-width:500px) {
+    h1 {
+        font-size: 40px;
+    }
+    .restartbtn{
+        font-size: 15px;
+    }
+
+    .board{
+        width: 330px;
+    }
+    .box{
+        height: 110px;
+        width: 110px;
+    }
+    
+}
+
+@media (max-width:375px) {
+    h1 {
+        font-size: 40px;
+    }
+    .restartbtn{
+        font-size: 15px;
+    }
+
+    .board{
+        width: 330px;
+    }
+    .box{
+        height: 110px;
+        width: 110px;
+    }
+    
+}
+
+@media (max-width:350px) {
+    h1{
+        font-size: 35px;
+    }
+    .restartbtn{
+        font-size: 15px;
+    }
+
+    .board{
+        width: 300px;
+    }
+    .box{
+        height: 100px;
+        width: 100px;
+    }
+    
+}
