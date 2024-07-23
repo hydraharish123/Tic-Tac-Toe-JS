@@ -18,6 +18,7 @@ body{
 h1{
     font-size: 70px;
 }
+
 .container{
     background-color: #37505C;
     height: 100vh;
@@ -37,6 +38,15 @@ h1{
     margin-top: 40px;
     margin-bottom: 40px;
     
+}
+
+p{
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    line-height: 1.5;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 .box{
@@ -153,6 +163,9 @@ h1{
         height: 110px;
         width: 110px;
     }
+    p{
+        font-size: 13px;
+    }
     
 }
 
@@ -170,6 +183,9 @@ h1{
     .box{
         height: 100px;
         width: 100px;
+    }
+    p{
+        font-size: 12px;
     }
     
 }
