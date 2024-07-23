@@ -32,12 +32,20 @@ const boxClick = function(e){
          //manipulate the winning blocks with different color
          winner.forEach(function(box){
              boxes[box].style.backgroundColor = winnerBlockColor ; 
-         })
+         });
+
+        setTimeout(function(){
+            restart();
+        },1000);
 
      }
      else 
-        if(playedMoves === 9)
+        if(playedMoves === 9){
             headerText.innerHTML = "Its a draw...";
+            setTimeout(function(){
+                restart();
+            },1500);
+        }
     
      
      currentPlayer = currentPlayer === "X" ? "O" : "X" ; //switch player
@@ -88,9 +96,7 @@ const playerWon = function(){
 
 /************************************************************************* RESTART BTN ******************************************************************************************* */
 
-const restart = function(e){
-    console.log(e);
-    console.log(e.target);
+const restart = function(){
     fillBox.fill(-1); //set all element to -1 again
 
     //set current player to X again
@@ -103,8 +109,6 @@ const restart = function(e){
     });
 
     headerText.innerHTML = "Tic Tac Toe" ;
-    //reset winners block
-    const winners = playerWon();
     playedMoves = 0 ; 
     
 }
