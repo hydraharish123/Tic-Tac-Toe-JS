@@ -1,3 +1,5 @@
+Check out the game now -> [Tic Tac Toe](https://hydraharish123.github.io/Tic-Tac-Toe-JS/)
+
 # Tic Tac Toe
 
 Tic Tac Toe is a simple two-player game typically played on a 3x3 grid. Players take turns marking a cell in the grid with their respective symbols: one player uses "X" and the other uses "O". The objective is to be the first to get three of their symbols in a row, which can be achieved horizontally, vertically, or diagonally.
