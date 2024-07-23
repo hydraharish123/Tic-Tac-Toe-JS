@@ -10,49 +10,59 @@ const O_sym = "O" ;
 const X_sym = "X" ; 
 let currentPlayer = X_sym ; 
 let playedMoves = 0 ; 
+const labelTime = document.querySelector(".timeText");
+
+
+/******************************************************************************* RESET GAME ************************************************************************* */
+const timeout = function(){
+    boxes.forEach(function(box){
+        box.removeEventListener("click" , boxClick);
+    })
+    setTimeout(function(){
+        restart();
+    },3000);
+}
+
 /**************************************************************************** START GAME **************************************************************************************************************** */
 
+
+
 const boxClick = function(e){
+    // console.log(box);
  // console.log(e.target);
  const boxSelected = e.target.id ; 
             
  if(fillBox[boxSelected] === -1)//if the current one is not filled then please go ahead and fill the current box
  {
     playedMoves++;
-     fillBox[boxSelected] = currentPlayer ; //fill box will the current text
-     // console.log(fillBox);
-     e.target.innerHTML = `${currentPlayer}`; //update text in the website
+    fillBox[boxSelected] = currentPlayer ; //fill box will the current text
+    // console.log(fillBox);
+    e.target.innerHTML = `${currentPlayer}`; //update text in the website
 
-     //write game logic here
-     if(playerWon() !== false){
-         headerText.innerHTML = `${currentPlayer} has Won!!` ; 
-         // console.log(playerWon());
-         const winner = playerWon(); //contains id of the winning blocks
+    //write game logic here
+    if(playerWon() !== false){
+        headerText.innerHTML = `${currentPlayer} has Won!!` ; 
+        // console.log(playerWon());
+        const winner = playerWon(); //contains id of the winning blocks
 
-         //manipulate the winning blocks with different color
-         winner.forEach(function(box){
-             boxes[box].style.backgroundColor = winnerBlockColor ; 
-         });
-
-        setTimeout(function(){
-            restart();
-        },1000);
-
-     }
-     else 
+        //manipulate the winning blocks with different color
+        winner.forEach(function(box){
+            boxes[box].style.backgroundColor = winnerBlockColor ; 
+        });
+        timeout();
+    }
+    else 
         if(playedMoves === 9){
             headerText.innerHTML = "Its a draw...";
-            setTimeout(function(){
-                restart();
-            },1500);
+            timeout();
         }
-    
-     
-     currentPlayer = currentPlayer === "X" ? "O" : "X" ; //switch player
- }
-
-
 }
+    
+    currentPlayer = currentPlayer === "X" ? "O" : "X" ; //switch player
+}
+
+
+
 
 const startGame = function(){
     boxes.forEach(function(box){
@@ -110,6 +120,10 @@ const restart = function(){
 
     headerText.innerHTML = "Tic Tac Toe" ;
     playedMoves = 0 ; 
+
+    boxes.forEach(function(box){
+        box.addEventListener("click" , boxClick);
+    })
     
 }
 restartbtn.addEventListener("click" , restart);
